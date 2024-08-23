@@ -1,0 +1,71 @@
+<div class="bod" id="demoscrollintoview">
+  <div class="row justify-content-center sec1 bg"> <!-- Center the row and add margin top -->
+    <div class="col-md-12 d-flex ">
+      <section class="section" >
+        <!-- Second Section Content Goes Here -->
+        <div class="select-container">
+          <select class="form-select" id="trier1" aria-label="Select option 1" (change)="sortDirection($event)">
+            <option selected>Trier</option>
+            <option value="asc">Asc</option>
+            <option value="desc">Desc</option>
+          </select>
+          <select class="form-select" id="trier2" aria-label="Select option 1" [(ngModel)]="sortBy" (change)="sortProjects()">
+            <option selected value="">Par</option>
+            <option value="name">Tâches</option>
+            <option value="manager_name">Responsable</option>
+            <option value="stage">Étape</option>
+          </select>
+
+          <select class="form-select" id="trier3" aria-label="Select option 3" [(ngModel)]="searchTerm">
+            <option selected value="">Filtrer par</option>
+            <option value="E-parapheur">E-parapheur</option>
+            <option value="RDV">RDV</option>
+            <option value="chikaya">Chikaya</option>
+            <option value="watiqa">Watiqa</option>
+          </select>
+          <div class="col-md-3">
+            <div class="d-flex form-inputs">
+              <input class="form-control" type="text" [(ngModel)]="searchTerm"  (keyup.enter)="searchProjects()" placeholder="Rechercher...">
+
+              <i class="bi bi-search" (click)="searchProjects()"></i>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="text-center tableCard"  >
+          <div class="">
+            <table class="table table-bordered table-hover">
+              <thead class="bg-head">
+              <tr class="table-primary">
+                <th scope="col" >Tâches</th>
+                <th scope="col">Description</th>
+                <th scope="col">Assignés</th>
+                <th scope="col">Étape</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let project of (projects$ | async)  | search:searchTerm " [class.task]="true" class="task" [routerLink]="['/project', project.id]"
+              >
+                <th scope="row" class="RT">{{ project.name }}</th> <!-- Assuming 'id' is the identifier for the project -->
+                <td>{{ project.description }}</td> <!-- Display project name -->
+                <td *ngIf="project.manager_id != null">
+                  {{ project.manager_name}}
+                </td> <!-- Display manager ID -->
+                <td *ngIf="project.manager_id ==null">Pas encore attribué</td> <!-- Display manager ID -->
+                <td>{{ project.stage }}</td> <!-- Display project description -->
+              </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+      </section>
+    </div>
+
+  </div>
+</div>

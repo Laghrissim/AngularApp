@@ -1,0 +1,206 @@
+
+$color_3: black;
+$background-color_2: #3563e9;
+$background-color_3: #ffffff;
+.container{
+  margin:2rem clamp(0.6rem,5vw,5rem) ;
+  min-width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .title{
+    background: url("/assets/images/gtx-blog.svg") center/cover no-repeat;
+    margin-bottom:3vw;
+    padding:5.5rem;
+    width:100%;
+    border-radius: 1rem;
+
+    h3 {
+      font-size: clamp(1rem, 2vw, 2rem);
+      font-weight:bold;
+    }
+
+  }
+  .form {
+    background: #F1F5FF;
+    width:30rem;
+
+    /* This bit sets up the horizontal layout */
+    display: flex;
+    //flex-direction: row;
+
+    /* This bit draws the box around it */
+    border: 1px solid grey;
+
+    /* I've used padding so you can see the edges of the elements. */
+    padding: 1px;
+
+    border-radius: 1rem;
+    label{
+      margin-left:2.5rem;
+      font-size:clamp(.8rem,1vw,1rem);
+    }
+  }
+  .form-control{
+    background: #F1F5FF;
+
+  }
+
+  input {
+    /* Tell the input to use all the available space */
+    flex-grow: 2;
+    /* And hide the input's outline, so the form looks like the outline */
+    border-radius: 1rem;
+    border: none;
+
+    &:focus {
+      border: 0;
+    }
+
+  }
+
+  /* Add the focus effect to the form so it contains the button */
+  .form:focus-within {
+    outline: 1px solid blue
+  }
+
+  .bi-paperclip {
+    color: #3563E9;
+
+  }
+
+  .btnAtt {
+    border: none;
+    font-size: 25px;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .btnEnv {
+    width: clamp(6rem,10vw,10rem);
+    font-size: clamp(.6rem,1vw,1rem);
+  }
+  .articles{
+    width:100%;
+    margin-top:3rem;
+    h5{
+      font-size:clamp(1rem,1.3vw,2rem);
+      font-weight:bold;
+      color:#1A1A1A;
+
+
+    }
+    p{
+      font-size:clamp(.8rem,1vw,1rem);
+      color:#667085;
+
+    }
+    .btnTag{
+      border: none;
+      margin: .6rem;
+      border-radius: 1rem;
+      font-size:clamp(.8rem,1vw,1rem);
+      width:clamp(5rem,6vw,10rem);
+    ;
+      &:hover {
+        background-color: transparent;
+      }
+
+    }
+  }
+  .fButton {
+    width: clamp(8rem, 15vw, 15rem);
+    background-color: $background-color_2;
+    font-size: clamp(0.8rem, 1vw, 1.5rem);
+    padding: .6rem;
+
+    &:hover {
+      width: clamp(8rem, 15vw, 15rem);
+      background-color: $background-color_3;
+      color: $color_3;
+    }
+  }
+.blog-details{
+  margin-top:3rem;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  width: 100%;
+  .blog-card{
+    width:30%;
+    .details{
+      padding: 4rem 1rem;
+      background: transparent;
+      border:none;
+      font-size:clamp(.8rem, 1vw, 1rem);
+
+      .location{
+        display:flex;
+        justify-content: space-between;
+        .city{
+          color:#3563E9;
+          font-size:clamp(.8rem, 1.1vw, 1.1rem);
+        }
+        .link{
+          text-decoration: underline;
+          &:hover{
+            cursor: pointer;
+            transform: scale(1.03);
+
+          }
+        }
+      }
+      .date{
+        display:flex;
+        p{
+          padding-right:1rem;
+          font-size:clamp(.8rem, 1vw, 1rem);
+
+        }
+        .month{
+          color:#88879C;
+        }
+      }
+
+  }
+  }
+  .blog-description{
+    width:60%;
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    padding:3rem;
+    p{
+      font-size:clamp(.8rem, 1vw, 1rem);
+    }
+  }
+  .last-details{
+    width:100%;
+    display:flex;
+    background-color: transparent ;
+    justify-content:right;
+    .organizer{
+      width: 30%;
+      padding-top:2rem;
+      font-size:clamp(.8rem, 1vw, 1rem);
+
+      .s-title{
+        color:#3563E9;
+      }
+    }
+  }
+}
+  .form-control{
+    border-color: initial; /* or transparent, or any color you prefer */
+    box-shadow: none; /* Optional: removes any box shadow */}
+  .contact {
+    img{
+      &:hover{
+        cursor: pointer;
+        transform: scale(1.13);
+
+      }
+    }
+  }
+}

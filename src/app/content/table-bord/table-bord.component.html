@@ -1,0 +1,60 @@
+<div class="structure" id="demoscrollintoview">
+  <div class="card prop-container">
+    <h4>Tableau de bord</h4>
+  </div>
+
+  <div class="title">
+    <div class="petit-titre">EXPLORER</div>
+    <div class="grand-titre">Nos applications e-gov en quelques chiffres</div>
+  </div>
+  <div class="cont">
+    <div class="card" *ngFor="let card of cards" [attr.id]="card.id">
+      <div class="content">
+        <h2>{{ card.title }}</h2>
+        <p>{{ card.subtitle }}</p>
+        <button class="transparent-button">
+          Plus de détails <i class="bi bi-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="cm-container">
+    <div class="card">
+      <div class="cm-first">
+        <h1 class="title">Watiqa</h1>
+        <h2 class="subtitle">Gestion du courriers administratifs</h2>
+      </div>
+
+      <div class="cm-second">
+        <span class="text"
+          >Actes de naissance commandés <i class="bi bi-arrow-up-short ico"></i
+        ></span>
+        <label class="number">845 297</label>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cm-first">
+        <p class="desc">
+          Découvrez Watiqa.ma, la plateforme incontournable pour simplifier vos
+          démarches administratives en ligne.
+        </p>
+      </div>
+
+      <div class="cm-second">
+        <span class="text"
+          >Copies intégrales commandées <i class="bi bi-arrow-up-short ico"></i
+        ></span>
+        <label class="number">570 499</label>
+      </div>
+    </div>
+
+    <!-- Répétez cette structure pour les autres cartes -->
+  </div>
+  <div class="buttonContainer">
+    <!-- Your content here -->
+    <button class="button">
+      <span>plus de détails <i class="bi bi-arrow-right"></i></span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+.container{
+  margin:2rem clamp(0.6rem,5vw,5rem) ;
+  min-width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .title{
+    background: url("/assets/images/GroupbackroundSolution.svg") center/cover no-repeat;
+    margin-bottom:3vw;
+    padding:4rem;
+    width:100%;
+    border-radius: 1rem;
+
+    h3 {
+      font-size: clamp(1rem, 2vw, 2rem);
+      font-weight:bold;
+    }
+
+  }
+  .form {
+    background: #F1F5FF;
+    width:30rem;
+
+      /* This bit sets up the horizontal layout */
+    display: flex;
+    //flex-direction: row;
+
+    /* This bit draws the box around it */
+    border: 1px solid grey;
+
+    /* I've used padding so you can see the edges of the elements. */
+    padding: 1px;
+
+    border-radius: 1rem;
+    label{
+      margin-left:2.5rem;
+      font-size:clamp(.8rem,1vw,1rem);
+    }
+  }
+  .form-control{
+    background: #F1F5FF;
+
+  }
+
+  input {
+    /* Tell the input to use all the available space */
+    flex-grow: 2;
+    /* And hide the input's outline, so the form looks like the outline */
+    border-radius: 1rem;
+    border: none;
+
+    &:focus {
+      border: 0;
+    }
+
+  }
+
+  /* Add the focus effect to the form so it contains the button */
+  .form:focus-within {
+    outline: 1px solid blue
+  }
+
+  .bi-paperclip {
+    color: #3563E9;
+
+  }
+
+  .btnAtt {
+    border: none;
+    font-size: 25px;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .btnEnv {
+    width: clamp(6rem,10vw,10rem);
+    font-size: clamp(.6rem,1vw,1rem);
+  }
+.articles{
+  width:100%;
+  margin-top:3rem;
+  h5{
+    font-size:clamp(1rem,1.3vw,2rem);
+    font-weight:bold;
+    color:#1A1A1A;
+
+
+  }
+  p{
+    font-size:clamp(.8rem,1vw,1rem);
+    color:#667085;
+
+  }
+  .btnTag{
+    border: none;
+    margin: .6rem;
+    border-radius: 1rem;
+    font-size:clamp(.8rem,1vw,1rem);
+    width:clamp(5rem,6vw,10rem);
+  ;
+      &:hover {
+        background-color: transparent;
+      }
+
+  }
+}
+.blogs{
+  padding:2rem;
+  display:flex;
+  flex-wrap: wrap;
+  //justify-content:center;
+  width: 100%;
+  &:hover{
+    box-shadow: 0 5px 35px 0px rgba(0,0,0,.5);
+
+  }
+
+  img{
+    width: clamp(15rem,20vw,20rem);
+  &:hover{
+    transform: scale(1.13);
+    cursor:pointer;
+
+  }
+  }
+
+  .description{
+    padding:3rem;
+    h6{
+      color:#3563E9;
+      font-size:clamp(.8rem,1vw,1rem);
+    }
+    h2{
+      color:#1A1A1A;
+      font-size:clamp(.8rem,1.2vw,1.2rem);
+      font-weight:bold;
+      &:hover{
+        transform: scale(1.02);
+        cursor:pointer;
+
+      }
+    }
+    p {
+      color:#667085;
+      font-size:clamp(.8rem,1vw,1rem);
+    }
+  }
+}
+
+  .form-control{
+    border-color: initial; /* or transparent, or any color you prefer */
+    box-shadow: none; /* Optional: removes any box shadow */}
+
+}

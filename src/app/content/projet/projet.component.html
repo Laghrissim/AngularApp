@@ -1,0 +1,97 @@
+<div class="bod" id="demoscrollintoview">
+  <div class="" id="projectCard" >
+    <div class="card-body">
+      <div class="projectContent" >
+           <span class="m2-text">
+        Étape :
+      </span>
+        <span class="m2-text blue-text" *ngIf="project">
+       {{project.stage}}
+      </span>
+        <h6 class="m-text" >Project :{{project.name}}</h6>
+        <h6 class="m-text" style="position: absolute; top: 7rem; right: 1rem;">
+          {{ project.creationDate | date:'dd MMM yyyy' }}
+        </h6>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center sec1 bg"> <!-- Center the row and add margin top -->
+  <div class="col-md-4 d-flex justify-content-center align-items-center " *ngIf="project">
+    <section class="section" *ngIf="project.manager_id && manager">
+      <!-- Second Section Content Goes Here -->
+
+
+        <span class="m3-text blue-text">Assignés</span><br>
+
+      <div class="card " id="profileCard" style="width: 21rem;">
+        <div class="card-body ">
+          <h5 class="card-title m3-text">{{manager.username}}</h5>
+          <h6 class="card-title">{{ manager.poste.charAt(0).toUpperCase() + manager.poste.slice(1).toLowerCase() }}</h6><br>
+          <hr>
+          <br>
+          <p class="card-text">Tél :+212 {{manager.account.phone}}</p>
+          <p class="card-text">E-mail :{{manager.email}}</p>
+        </div>
+      </div>
+
+
+
+    </section>
+    <section class="section" *ngIf="!project.manager_id">
+      <!-- Second Section Content Goes Here -->
+
+
+        <span class="m2-text blue-text">Pas Encore Attribué</span><br>
+
+
+    </section>
+  </div>
+  <div class="col-md-8 ">
+    <section >
+      <div class="comment-container">
+      <h6 style="font-weight: bold">Commentaire</h6>
+      <br>
+
+        <div class="form form-floating mb-3 d-flex align-items-center justify-content-center gap-4 mr-1">
+          <input type="email" class="form-control flex-grow-1" id="floatingInput" placeholder="Message" [(ngModel)]="newMessage" (keyup.enter)="sendMessage(newMessage)">
+          <label for="floatingInput">Message</label>
+          <button class="btn btn-primary btnEnv" (click)="sendMessage(newMessage)"  >
+            Envoyer <i class="bi bi-send-fill"></i>
+          </button><br>
+        </div>
+        <div >
+<!--          <div *ngFor="let message of (showAllMessages ? messageList.reverse() : firstMessages)" class="container mb-2">-->
+<!--            <div class="profilMessage">-->
+<!--              <img src="/assets/images/profil.svg" class="rounded" alt="...">-->
+<!--            </div>-->
+<!--            <div class="message">-->
+<!--              <h6 style="font-weight: bold">{{ message.sender }}</h6>-->
+<!--              <p>{{ message.content }}</p>-->
+<!--              <p class="date">{{ message.timestamp | date: 'h:mm a' }}</p>-->
+<!--            </div>-->
+<!--          </div>-->
+            <ul class="messages ">
+              <li class="message" *ngFor="let message of (showAllMessages ? messageList.reverse() : firstMessages)"
+                  [ngClass]="{ 'right': message.sender === user.username, 'left': message.sender !== user.username }">
+                <div class="avatar"><img src="/assets/images/profil.svg" class="rounded" alt="..."></div>
+                <div class="text_wrapper">
+                  <span  style="font-weight: bold" >{{ message.sender }}</span>
+                  <span  *ngIf="message.sender === user.username"> (Vous) </span>
+                  <div class="text">{{ message.content }}</div>
+                </div>
+              </li>
+            </ul>
+
+        </div>
+
+      </div>
+<div class="show-all align-items-center mt-5" >
+      <button class="btn btn-primary transparent-btn2 " (click)="showAllMessages ? showLess() : showAll()" >
+        <h6 *ngIf="!showAllMessages">Historique des messages et communications <i class="bi bi-chevron-down"></i></h6>
+        <h6 *ngIf="showAllMessages">Afficher moins de messages<i class="bi bi-chevron-down"></i></h6>
+      </button>
+</div>
+    </section>
+  </div>
+</div>
+</div>

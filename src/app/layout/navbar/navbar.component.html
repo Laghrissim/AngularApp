@@ -1,0 +1,125 @@
+<nav class="navbar">
+  <div class="navbar-container container">
+    <input type="checkbox" name="" id="" />
+    <div class="hamburger-lines">
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
+    </div>
+
+    <ul class="menu-items">
+
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          À propos
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/vision">Vision</a></li>
+          <li>
+            <a class="dropdown-item" routerLink="/principes">Principes</a>
+          </li>
+        </ul>
+      </li>
+      <li><a (click)="ToMarketplace()">Marketplace</a></li>
+      <li><a (click)="toTableauBord()">Tableau de bord</a></li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Connaissance
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="evenements">Événements</a></li>
+          <li><a class="dropdown-item" routerLink="/videotheque">Vidéothèque</a></li>
+
+        </ul>
+      </li>
+      <li><a  routerLink="/blog">Blog</a></li>
+      <li class="nav-item dropdown" id="icon" >
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i
+            class="bi bi-person-fill icon"
+          ></i>
+        </a>
+        <ul class="dropdown-menu" >
+          <li><a class="dropdown-item" (click)="toLogin()">Se Connecter</a></li>
+          <li><a class="dropdown-item" (click)="toRegister()" >s'inscrire</a></li>
+<!--          <li><hr class="dropdown-divider" /></li>-->
+<!--          <li><a class="dropdown-item">Something else here</a></li>-->
+        </ul>
+      </li>
+      <li class="nav-item dropdown" id="icon1" *ngIf="isLoggedIn && user!=null">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">{{user.username}}</a>
+        <ul class="dropdown-menu" >
+            <li><a class="dropdown-item" (click)="toTasks()">Projets {{projectCount$ | async}}</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" (click)="toHome()">Se Déconnecter</a></li>
+
+        </ul>
+      </li>
+      <li> <button class="btn btn-success ms-3 fButton dn" type="submit">
+        Contactez-nous
+      </button></li>
+    </ul>
+<button style="background-color: transparent; border: none;">
+    <img src="../../../assets/images/logo-white-fr.svg" class="logo" (click)="toHome()" />
+</button>
+    <div class="right-items">
+      <li class="nav-item dropdown" *ngIf="!isLoggedIn">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i
+            class="bi bi-person-fill icon"
+          ></i>
+        </a>
+        <ul class="dropdown-menu" >
+          <li><a class="dropdown-item" (click)="toLogin()">Se Connecter</a></li>
+          <li><a class="dropdown-item" (click)="toRegister()">s'inscrire</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item">Something else here</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown" id="icon1" *ngIf="isLoggedIn && user!=null">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">{{user.username}}</a>
+        <ul class="dropdown-menu" >
+          <li><a class="dropdown-item" (click)="toTasks()">Projets <span style="color: #85a891">{{projectCount$ | async}}</span></a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" (click)="logOut()">Se Déconnecter</a></li>
+
+        </ul>
+      </li>
+      <button class="btn btn-success ms-3 fButton dn" type="submit">
+        Contactez-nous
+      </button>
+    </div>
+  </div>
+</nav>

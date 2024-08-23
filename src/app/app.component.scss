@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+    width:100%;
+}
+
+.cm-bg {
+    background: url("/assets/images/bk-page.svg") center/cover no-repeat !important;
+    background-color: azure;
+
+  //width: clamp(100%,100vw,300%);
+
+}

@@ -1,0 +1,334 @@
+#demoscrollintoview {
+  scroll-behavior: smooth;
+}
+
+.sec1 {
+  padding: 5rem;
+  //margin:7rem 5rem 0rem 5rem !important;
+  background-repeat: no-repeat;
+  background-size: cover; background-position: center;
+  margin:auto;
+  border-radius: 2rem;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.main-heading {
+  width: 30rem;
+  text-align: center;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.main-heading .egov {
+  color: #3563E9;
+}
+
+.para1 {
+  color: #141340;
+  font-weight: normal;
+  font-size: 16px;
+
+
+}
+
+.transparent-btn2 {
+  color: #000000;
+  background-color: transparent !important;
+  border: none;
+  margin-top: 7rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.transparent-btn2:hover {
+  color: #007bff;
+}
+
+#bgimg {
+  //margin-left: 5rem;
+  border-radius: 2rem;
+  width: clamp(30rem,70vw,70rem);
+  height: clamp(10rem,20vw,20rem);
+}
+
+.sec1 {
+  .section {
+    margin-left: 1rem;
+
+    h2 {
+      color: #1c1f25;
+      width: clamp(10rem,13vw,50rem);
+      font-size: 36px;
+      font-weight: bold;
+    }
+  }
+}
+
+.para {
+  color: #3563E9;
+  width: 90%;
+  font-size: clamp(.8rem,1vw,1rem);
+  margin-top: 30px
+}
+
+.prop-container {
+  display:flex;
+  flex-wrap:wrap!important;
+  background: url("/assets/images/Background.svg") no-repeat, linear-gradient(90deg, rgba(162, 184, 247, 1) 0%, rgba(47, 91, 220, 1) 22%, rgba(53, 99, 233, 1) 100%);
+  background-position: left bottom;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  color: #ffffff;
+  //width: 80%;
+  padding: 3rem;
+  margin-bottom: 4rem;
+
+  .cm-sub-prop {
+    font-size:clamp(0.6rem,1.2vw,1.2rem)
+    //margin-left: -3rem;
+  }
+}
+
+.text-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* Wrap elements when necessary */
+  gap: 1vw;
+  /* Use viewport units for gap */
+  margin-bottom: 3vw;
+  margin-top: -2vw;
+  justify-content: flex-start;
+  color: #ffffff;
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-right: 6vw;
+}
+
+.fButton {
+  margin-right: -4rem;
+  background-color: #8effc9;
+  padding: 1vw 3vw;
+  color: #010333;
+  font-weight: bold;
+  font-size:clamp(.8rem,1vw,1rem);
+  width:clamp(7rem,15vw,15rem);
+  border-radius: 1.2rem;
+  &:hover{
+    box-shadow: 0 5px 35px 0px rgba(0,0,0,.5);
+
+  }
+
+}
+.voir-projet {
+  margin-right: -4rem;
+  background-color: #8effc9;
+  padding: 1vw 3vw;
+  color: #010333;
+  font-weight: bold;
+  font-size:clamp(.8rem,1vw,1rem);
+  width:clamp(7rem,15vw,15rem);
+  border-radius: 1.2rem;
+  &:hover{
+    box-shadow: 0 5px 35px 0px rgba(0,0,0,.5);
+
+  }
+
+}
+
+.description {
+  display: flex;
+  //flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0);
+  /* Fond transparent */
+  /* Autres styles pour la section */
+  padding: 0px 1vw;
+  /* Ajoutez des marges intérieures pour un meilleur aspect */
+  margin: 0px 60px;
+  /* Ajoutez des marges extérieures pour un meilleur aspect */
+
+  h4 {
+    font-weight: bold;
+    width: clamp(12rem,15vw,15rem);
+    font-size:clamp(.8re,1.3vw,1.3rem)
+  }
+
+  p {
+    margin-left: 23rem;
+    margin-right: 2vw;
+    font-size:clamp(.8re,1vw,1rem);
+    width: clamp(20rem,53vw,53rem);
+
+    line-height: 30px;
+    color: #141340;
+  }
+}
+
+/* Styles pour le contenu à l'intérieur de la section */
+//section h3, section p {
+//  margin:20px; /* Pour supprimer les marges par défaut des éléments */
+//}
+.transparent-bg {
+  background-color: rgba(255, 255, 255, 0);
+  /* Transparent background */
+  padding: 20px;
+  padding-left: 1rem;
+  margin-top: 1rem;
+
+  ul {
+    font-weight: bold;
+    font-size: 19px;
+  }
+}
+
+.white-bg {
+  background-color: #ffffff;
+  /* White background */
+  padding: 20px;
+  padding-left: 4rem;
+  border-radius: 2rem;
+  margin-left: 5.6vw;
+  margin-right: 5rem;
+  width: 62%;
+  font-size:clamp(.7rem,1vw,1rem);
+
+  h6 {
+    color: #3563E9;
+    font-weight: bold;
+    font-size:clamp(.8rem,1.1vw,1.1rem);
+  }
+
+  .titles>li {
+    color: #7061A3;
+    /* Color for the titles */
+  }
+  .titles {
+    color: #7061A3;
+    /* Color for the titles */
+  }
+
+  .titles ul {
+    color: black;
+    //color: #7061A3;
+
+    /* Reset color for nested lists */
+    list-style-type: disc;
+  }
+
+  p,
+  ul,
+  li,
+  ul li {
+    line-height: 30px;
+  }
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  .prop-container {
+    height: 20rem;
+    padding-left: 0vw;
+  }
+
+  .description {
+    p {
+      margin-left: 1rem;
+    }
+  }
+}
+
+/* For medium screens */
+@media (min-width: 768px) and (max-width: 1292px) {
+  .prop-container {
+    height: 16rem;
+    justify-content: center;
+    //padding-left: 20vw;
+  }
+
+  .description {
+    p {
+      margin-left: 1rem;
+    }
+  }
+}
+
+/* For large screens */
+@media (min-width: 992px) {}
+
+.programee-detail-section .mobile-scroll {
+  margin-bottom: 35px;
+}
+
+.programee-overview-start {
+  position: sticky;
+  top: 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+
+  ul {
+    margin: 0;
+    margin-top: 4px;
+    padding-top: 40px;
+    padding-bottom: 36px;
+    padding-left: 0;
+    list-style: none;
+
+    li.active {
+      position: relative;
+
+      &::before {
+
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        height: 100%;
+        background-color: #029DE0;
+      }
+    }
+
+    li {
+      padding: 0 40px;
+      font-size: 16px;
+      color: #262626;
+      margin-bottom: 12px;
+
+
+      a {
+        text-decoration: none;
+        color: #000000;
+        transition: all ease-in-out 300ms;
+        -webkit-transition: all ease-in-out 300ms;
+
+        &:hover {
+          color: #029DE0;
+        }
+      }
+    }
+
+  }
+}
+::ng-deep p-button .p-button {
+  /* Reset default styles */
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  color: inherit !important;
+  font: inherit !important;
+  /* Add your custom styles */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -1,0 +1,142 @@
+#demoscrollintoview {
+    scroll-behavior: smooth;
+    position: relative;
+    margin: 2rem auto;
+    width: 85%;
+
+
+    .top-card {
+        background: url("/assets/images/GroupbackroundSolution.svg") center/cover no-repeat;
+        position: relative;
+        height: 12rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+        margin-bottom: 5rem;
+
+        .center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            text-align: center;
+
+            span {
+                color: #1c1f25;
+                font-size: clamp(1rem, 3vw, 3rem);
+                font-weight: bold;
+            }
+        }
+    }
+
+    .content {
+
+        margin-bottom: 5rem;
+
+        .left-side {
+
+            padding: 0 6rem 0 3rem;
+            width: calc(100%/3);
+            gap: 3rem;
+
+            .title {
+                font-size: clamp(1rem, 2vw, 2rem);
+                font-weight: 700;
+            }
+
+            .description {
+                color: #667085;
+            }
+
+            img {
+                margin: 0;
+                padding: 0;
+            }
+
+            .text-container {
+                display: flex;
+                justify-content: flex-start;
+                border-bottom: 1.5px solid black;
+                padding: 10px 5px;
+
+                input {
+                    padding-left: 20px;
+                    font-size: 17px;
+                    outline: none;
+                    border: none;
+                    background: transparent;
+                    width: 100%;
+                }
+
+                .bi-search {
+
+                    cursor: pointer;
+                    color: #000;
+                }
+
+            }
+
+            .events {
+
+                img {
+                    vertical-align: top;
+                }
+
+                span {
+                    padding-left: 1.2rem;
+                    font-weight: 700;
+                    font-size: 1rem;
+                }
+
+                ul li {
+                    cursor: pointer;
+                    padding: 4px;
+
+                    &:hover {
+                        color: #3563E9;
+                    }
+                }
+            }
+
+        }
+
+
+
+        .event-cards {
+            flex: 1 auto;
+            gap: 4rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: end;
+
+            .card {
+                width: min(24vw, 27rem);
+                height: auto;
+                border-radius: 1rem;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    transform: scale(1);
+                    transition: transform 0.15s ease;
+
+                    &:hover {
+                        transform: scale(1.13);
+                    }
+                }
+
+                .card-body {
+                    a {
+                        border-radius: 1rem;
+                        padding: 10px 1.5rem;
+
+                        .bi {
+                            margin-left: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

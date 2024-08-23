@@ -1,0 +1,140 @@
+<script src="../solution/solution.component.ts"></script>
+<div id="demoscrollintoview">
+  <div class="prop-container">
+    <!-- Center the row and add margin top -->
+    <div class="align-items-center">
+      <section class="">
+        <div class="text-container">
+          <div class="vertical-container">
+            <h4>Services et applications</h4>
+            <h6>
+              L'ADD a mis en place des outils et plateformes numériques afin
+              d'assurer l'amélioration des services administratifs.
+
+            </h6>
+            <p-toast></p-toast>
+            <p-confirmDialog></p-confirmDialog>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="cont">
+    <h4>Notre catalogue mutualisé</h4>
+    <div class="card-container">
+
+      <div class="card" *ngFor="let solution of solutions">
+
+          <img
+            routerLink="/solution"
+            src="{{ solution.picture }}"
+            class="card-img-top"
+            alt="..."
+            [routerLink]="['/solution', solution.id - 1]"
+          />
+
+
+        <div class="card-body">
+          <h5 class="card-title">{{ solution.name }}</h5>
+          <p class="card-text">
+            {{ solution.description }}
+          </p>
+        </div>
+
+        <div class="cm-button">
+<!--          <button-->
+<!--            *ngIf="solution.status=='user'"-->
+<!--            class="btn btn-outline-primary souscrire"-->
+<!--            (click)="souscrire(solution.id)"-->
+<!--          >-->
+<!--            Souscrire-->
+<!--            <i class="bi bi-arrow-up-right-circle ms-3"></i>-->
+<!--          </button>-->
+          <p-button  *ngIf="solution.status=='user'" (click)="confirm1($event,solution.id)" label="" class="btn btn-outline-primary souscrire" styleClass="">Souscrire <i class="bi bi-arrow-up-right-circle ms-3"></i></p-button>
+
+          <button
+            *ngIf="solution.status=='beneficiary'"
+            class="btn btn-outline-primary souscrire"
+            disabled
+          >
+            Bénéficiaire
+            <i class="bi bi-arrow-up-right-circle ms-3"></i>
+          </button>
+          <button
+            *ngIf="solution.status=='client'"
+            class="btn btn-outline-primary projet"
+            (click)="getProject(solution.id, user.id)"
+
+          >
+            Voir Projet
+            <i class="bi bi-arrow-up-right-circle ms-3"></i>
+          </button>
+
+          <button
+            class="btn btn-secondary transparent-btn"
+            [routerLink]="['/solution', solution.id - 1]"
+          >
+            En savoir plus
+            <i class="bi bi-arrow-up-right-circle ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <h4>Découvrez les autres initiatives de l'ADD</h4>
+
+    <div class="card-container">
+      <div class="card" *ngFor="let solution of (show ? solutions : firstSolutions)">
+
+          <img
+            routerLink="/blog"
+            src="{{ solution.picture }}"
+            class="card-img-top"
+            alt="..."
+            [routerLink]="['/solution', solution.id - 1]"
+          />
+
+        <div class="card-body">
+          <h5 class="card-title">{{ solution.name }}</h5>
+          <p class="card-text">
+            {{ solution.description }}
+          </p>
+        </div>
+
+        <div class="cm-button">
+          <button
+            *ngIf="solution.active"
+            class="btn btn-outline-primary souscrire"
+          >
+            Souscrire
+            <i class="bi bi-arrow-up-right-circle ms-3"></i>
+          </button>
+          <button
+            *ngIf="!solution.active"
+            class="btn btn-outline-primary souscrire"
+            disabled
+          >
+            Inscrit
+            <i class="bi bi-arrow-up-right-circle ms-3"></i>
+          </button>
+
+          <button
+            class="btn btn-secondary transparent-btn"
+            [routerLink]="['/solution', solution.id - 1]"
+          >
+            En savoir plus
+            <i class="bi bi-arrow-up-right-circle ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <button  *ngIf="!show" class="transparent-btn2" (click)="showAll()">
+      Voir tout
+      <i class="bi bi-arrow-down-left ms-3" style="color: #000a27"></i>
+    </button>
+    <button  *ngIf="show" class="transparent-btn2" (click)="showLess()">
+      Voir Moins
+      <i class="bi bi-arrow-up-right ms-3" style="color: #000a27"></i>
+    </button>
+  </div>
+</div>

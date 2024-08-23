@@ -1,0 +1,304 @@
+#demoscrollintoview {
+  scroll-behavior: smooth;
+}
+
+.structure {
+  padding: 4rem;
+
+  .prop-container {
+    position: relative;
+    background: url("/assets/images/logo-tableau-bord.svg") center/cover no-repeat;
+    width: 100%;
+    height: 12rem;
+    border-radius: 1.5rem;
+    border: 0;
+
+    h4 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      /* Optional, to remove default margins */
+      color: #1c1f25;
+      font-size: clamp(2vw, 1.8rem, 2.5rem);
+      font-weight: 600;
+    }
+  }
+}
+
+.title {
+  max-width: 90%;
+  text-align: center;
+  margin: 5%;
+
+  .petit-titre {
+    height: 1.3125rem;
+    margin: auto;
+    color: #3563e9;
+    font-size: min(1.1vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.3125rem;
+
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .grand-titre {
+    height: 3rem;
+    margin: auto;
+    color: #161c2d;
+    font-size: min(1.5vw, 2.5rem);
+
+    font-weight: 700;
+    line-height: 3rem;
+  }
+}
+
+.cont {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 3rem;
+
+
+  .card {
+    position: relative;
+
+    background-color: #f0f0f0;
+    overflow: hidden;
+    border-radius: 1rem;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 0;
+    &:hover{
+      cursor: pointer;
+      transform: scale(1.03);
+      box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+
+
+    }
+
+    .content {
+      padding: 1rem;
+
+
+      h2 {
+        margin: 0;
+        font-size: min(1.8vw, 21px, 2rem);
+        font-weight: 700;
+        line-height: 2rem;
+        letter-spacing: 0px;
+        text-align: left;
+        margin-bottom: 4px;
+      }
+
+      p {
+        margin: 0;
+        margin-bottom: 1.5rem;
+        font-size: 0.8rem;
+        line-height: 1rem;
+      }
+
+      .transparent-button {
+        position: absolute; // Add absolute positioning
+        bottom: 0.7rem; // Adjust top positioning as needed
+        right: 10px;
+        margin-left: 7rem;
+        border: none;
+        background-color: transparent;
+        color: #333;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        font-size: 0.7rem;
+        font-weight: 700;
+        line-height: 9px;
+        letter-spacing: 0em;
+        text-align: left;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+
+  #c1 {
+    P {
+      color: #098a73;
+    }
+
+    background: #d8f8ef;
+  }
+
+  #c2 {
+    p {
+      color: #f44f4f;
+    }
+
+    background: #ffe0e0;
+  }
+
+  #c3 {
+    p {
+      color: #3563e9;
+    }
+
+    background: #eaf6ff;
+  }
+
+  #c4 {
+    p {
+      color: #8623f1;
+    }
+
+    background: #f8eaff;
+  }
+}
+
+
+.cm-container {
+  margin: 0;
+  background: conic-gradient(from -180deg at 50% 50%,
+      #d8f8ef 0deg,
+      #b0f7f1 360deg);
+
+  display: flex;
+  border-radius: 2rem;
+  margin-top: 5rem;
+
+  .card {
+    position: relative;
+    background: transparent;
+    padding: 3rem 3rem 2rem;
+    flex: 1;
+    border: none;
+
+    .cm-first {
+
+      height: 8rem;
+
+      .desc {
+
+        margin: 0;
+        padding: 1.9rem 2rem 1.9rem 1rem;
+        width: 90%;
+        font-size: clamp(0.8rem,1vw,1rem);
+      }
+
+      @media (max-width:850px) {
+        width: 100%;
+      }
+
+    }
+
+    .cm-second {
+
+      display: flex;
+      flex-direction: column;
+      text-align: end;
+      margin-right: 3rem;
+      padding-top: 3rem;
+
+      span {
+        position: relative;
+        margin: 0;
+
+        .ico {
+          position: absolute;
+          top: 1.3rem;
+          right: 0;
+          font-size: 1.2rem;
+        }
+      }
+
+      label {
+        margin: 0;
+      }
+    }
+
+    /* Ajoutez une bordure pour visualiser les cartes */
+    .title {
+      font-weight: bold;
+      text-align: left;
+      margin: 1rem;
+      font-size: clamp(1rem,3vw,3rem);
+      line-height: 3rem;
+      letter-spacing: 0px;
+    }
+
+    .subtitle {
+      //line-height: 0rem;
+      text-align: left;
+      margin-left: 1rem;
+      font-size: clamp(.8rem,1vw,1rem);
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0em;
+      color: #098a73;
+    }
+
+    .text {
+      font-weight: bold;
+      font-size: clamp(.8rem,1.125vw,1.125rem);
+
+      color: #098a73;
+    }
+
+    .number {
+      font-weight: bold;
+      font-size: min(3vw, 5rem);
+    }
+
+  }
+}
+
+.buttonContainer {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  margin-block: 2rem;
+  padding: 20px;
+
+  .button {
+    position: absolute;
+    right: 0;
+    padding: 0.75rem 4rem;
+
+    background-color: transparent;
+    color: black;
+    border-color: #3563e9;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 1rem;
+    border-width: 1.5px;
+    border-style: solid;
+    &:hover{
+      cursor: pointer;
+      transform: scale(1.03);
+      box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+
+
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  .prop-container {
+    height: 6rem;
+    padding-left: 0vw;
+  }
+}
+
+/* For medium screens */
+@media (min-width: 768px) and (max-width: 1292px) {
+  .prop-container {
+    justify-content: center;
+  }
+}

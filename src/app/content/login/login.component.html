@@ -1,0 +1,259 @@
+<section class="cm-parts-wrapper" id="demoscrollintoview">
+  <div class="container card cm-first">
+    <p>L'Agence de Développement du Digital (ADD)</p>
+  </div>
+
+  <div class="container cm-form">
+    <div class="card">
+      <h2>Bonjour</h2>
+      <form class="gap-2 mt-4" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && loginForm.controls['email'].errors?.['required']"
+        >Email is required.</small
+        >
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && loginForm.controls['email'].errors?.['email']"
+        >Invalid email format.</small
+        >
+
+        <label for="password">Mot de passe</label>
+
+        <div class="form__input">
+          <input
+            [type]="fieldTextType ? 'text' : 'password'"
+            id="password"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <span
+          ><i
+            class="bi-eye"
+            [ngClass]="{
+                'bi-eye-slash': !fieldTextType,
+                'bi-eye': fieldTextType
+              }"
+            (click)="toggleFieldTextType()"
+          ></i
+          ></span>
+        </div>
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && loginForm.controls['password'].errors?.['required']"
+        >Password is required.</small
+        >
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="backendError"
+        >{{ backendError }}</small
+        >
+
+        <div class="new-password">
+          <a (click)="switchCardToPasswordChange()"
+          >Réinitialiser le mot de passe</a
+          >
+        </div>
+
+        <button type="submit">Se connecter</button>
+      </form>
+      <div class="switch text-center">
+        Vous n'avez pas de compte ?
+        <a (click)="switchCard()">S'inscrire</a>
+      </div>
+    </div>
+
+    <div class="card" style="display: none">
+      <h2>Register Form</h2>
+      <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+        <label for="username">Nom complet</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          placeholder="Enter your full name"
+        />
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && registrationForm.controls['username'].errors?.['required']"
+        >Full name is required.</small
+        >
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && registrationForm.controls['username'].errors?.['minlength']"
+        >Full name must be at least 8 characters long.</small
+        >
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && registrationForm.controls['username'].errors?.['maxlength']"
+        >Full name cannot exceed 30 characters.</small
+        >
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && registrationForm.controls['email'].errors?.['required']"
+        >Email is required.</small
+        >
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && registrationForm.controls['email'].errors?.['email']"
+        >Invalid email format.</small
+        >
+
+        <label for="password">Mot de passe</label>
+
+        <div class="form__input">
+          <input
+            [type]="fieldTextType ? 'text' : 'password'"
+            id="password"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <span
+          ><i
+            class="bi-eye"
+            [ngClass]="{
+                'bi-eye-slash': !fieldTextType,
+                'bi-eye': fieldTextType
+              }"
+            (click)="toggleFieldTextType()"
+          ></i
+          ></span>
+        </div>
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && registrationForm.controls['password'].errors?.['required']"
+        >Password is required.</small
+        >
+
+        <label for="confirmpassword">Confirmation du mot de passe</label>
+
+        <div class="form__input">
+          <input
+            [type]="repeatFieldTextType ? 'text' : 'password'"
+            id="confirmpassword"
+            formControlName="confirmpassword"
+            placeholder="Enter your password"
+          />
+          <span
+          ><i
+            class="bi-eye"
+            [ngClass]="{
+                'bi-eye-slash': !repeatFieldTextType,
+                'bi-eye': repeatFieldTextType
+              }"
+            (click)="toggleRepeatFieldTextType()"
+          ></i
+          ></span>
+        </div>
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && registrationForm.controls['confirmpassword'].errors?.['required']"
+        >Password confirmation is required.</small
+        >
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && registrationForm.controls['confirmpassword'].errors?.['passwordMatch']"
+        >Passwords do not match.</small
+        >
+
+        <div class="form-floating form__input">
+          <select
+            class="form-select custom-select"
+            id="floatingSelect"
+            formControlName="selectedContactId"
+            aria-label="Sélectionnez une administration"
+          >
+            <option *ngFor="let contact of contacts" [value]="contact.id">
+              {{ contact.name }}
+            </option>
+          </select>
+          <label for="floatingSelect">
+            <h6 style="color: #000a27">Sélectionnez une administration</h6>
+          </label>
+        </div>
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && registrationForm.controls['selectedContactId'].errors?.['required']"
+        >Administration selection is required.</small
+        >
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="registrationError"
+        >{{ registrationError }}</small
+        >
+
+
+        <button type="submit">Créer un compte</button>
+      </form>
+      <div class="switch">
+        Vous avez déjà un compte ?
+        <a (click)="switchCard()">Se connecter</a>
+      </div>
+    </div>
+
+    <div class="card" style="display: none">
+      <h2>Mot de passe oublié</h2>
+
+      <label class="password-change-desc">
+        Pour réinitialiser votre mot de passe, saisissez l'adresse e-mail
+        associée à votre compte
+      </label>
+      <form [formGroup]="forgotpasswordForm" (ngSubmit)="sendMailIfUserExists()">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && forgotpasswordForm.controls['email'].errors?.['required']"
+        >Email is required.</small
+        >
+        <small
+          class="ng-dirty ng-invalid"
+          style="color:red;"
+          *ngIf="submitted && forgotpasswordForm.controls['email'].errors?.['email']"
+        >Invalid email format.</small
+        >
+
+        <button type="submit">Valider</button>
+      </form>
+      <div class="switch">
+        Vous n'avez pas de compte ?
+        <a (click)="switchCardToRegister()">S'inscrire</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,130 @@
+<div id="demoscrollintoview">
+  <div class="row justify-content-center sec1" [style.background-image]="'url(' + projects[this.id].background + ')'">
+    <!-- Center the row and add margin top -->
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+      <section class="section">
+        <!-- Second Section Content Goes Here -->
+
+        <h2>{{projects[this.id].title}}</h2>
+        <p class="para">
+          {{projects[this.id].sousTitle}}
+        </p>
+      </section>
+    </div>
+
+    <div class="col-md-7 d-flex justify-content-center align-items-center">
+      <section id="bgimg">
+        <iframe
+          [src]="projects[this.id].videoLink"
+          title="YouTube video"
+          allowfullscreen
+          style="width: 100%; height: 100%; border-radius: 2rem"
+        ></iframe>
+      </section>
+    </div>
+  </div>
+  <div
+    class="d-flex justify-content-around align-items-center prop-container flex-wrap"
+  >
+    <div
+      class="col-6 d-flex justify-content-around align-items-center flex-wrap"
+    >
+      <p-toast></p-toast>
+      <p-confirmDialog></p-confirmDialog>
+      <div class="cm-sub-prop">
+        <h4>Lancement</h4>
+        <h6>{{projects[this.id].lancementDate}}</h6>
+      </div>
+
+      <div class="cm-sub-prop">
+        <h4>Cible</h4>
+        <h6>{{projects[this.id].cible}}</h6>
+      </div>
+    </div>
+    <div
+      class="col-6 d-flex justify-content-around align-items-center flex-wrap"
+    >
+      <div class="cm-sub-prop">
+        <h4>Version</h4>
+        <h6>{{projects[this.id].version}}</h6>
+      </div>
+<!--      <button class="btn btn-success fButton" type="submit">Souscrire</button>-->
+      <div *ngIf="solution">
+      <p-button  *ngIf="solution?.status=='user'" (click)="confirm1($event,solution.id)" label="" class="btn btn-success fButton" styleClass="">Souscrire <i class="bi bi-arrow-up-right-circle ms-3"></i></p-button>
+
+      <button
+        *ngIf="solution?.status=='beneficiary'"
+        class="btn btn-outline-primary voir-projet"
+        disabled
+      >
+        Bénéficiaire
+        <i class="bi bi-arrow-up-right-circle ms-3"></i>
+      </button>
+      <button
+        *ngIf="solution?.status=='client'"
+        class="btn btn-outline-primary voir-projet"
+        (click)="getProject(solution.id, user.id)"
+
+      >
+        Voir Projet
+        <i class="bi bi-arrow-up-right-circle ms-3"></i>
+      </button>
+      </div>
+    </div>
+  </div>
+
+  <section class="description">
+    <h4>{{projects[this.id].descriptionTitle}}</h4>
+    <p [innerHTML]="projects[this.id].description">
+      {{projects[this.id].description}}
+    </p>
+
+  </section>
+
+  <div class="container-fluid m-5">
+    <div class="row">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+        <div class="programee-overview-start" style="background-color: #f3f8fa">
+          <ul>
+            <li *ngIf="projects[this.id].objectif" [class.active]="isActive === 0" (click)="setActive(0)">
+              <a href="/solution#objectif" class="common-scroll-to-section"
+                >Objectif</a
+              >
+            </li>
+            <li *ngFor="let section of projects[this.id].elements; let i = index" [class.active]="isActive === i+1" (click)="setActive(i+1)">
+              <a href="/solution#{{section.id}}" class="common-scroll-to-section"
+                >{{section.title}}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8 white-bg" id="objectif">
+        <br>
+        <h6 *ngIf="projects[this.id].objectif">Objectif</h6><br>
+        <p>
+          {{projects[this.id].objectif}}
+        </p>
+        <div *ngFor="let section of projects[this.id].elements" [id]="section.id">
+          <h6>{{ section.title }}</h6><br>
+          <ul *ngIf="section.content && section.content.length > 0" >
+            <ng-container *ngFor="let item of section.content">
+              <div class="sm-title">
+              <li *ngIf="!item.steps" [innerHtml]="item">
+              </li>
+              </div>
+              <li *ngIf="item.steps" class="titles">
+                {{ item.title }}
+                <ul>
+                  <li *ngFor="let step of item.steps">{{ step }}</li>
+                </ul>
+              </li>
+            </ng-container>
+          </ul>
+          <br>
+        </div>
+
+      </div>
+  </div>
+</div>
+</div>
